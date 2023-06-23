@@ -8,6 +8,7 @@ export type FetchParams = {
   category: string;
   pageCount: number;
 };
+// createAsyncThunk<FetchItem[],FetchParams>
 export const fetchItems = createAsyncThunk(
   "pizza/fetchItemsStatus",
   async (

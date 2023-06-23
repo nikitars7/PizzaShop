@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { addtoCart } from "../redux/slices/cartSlice";
 import { selectorCartItemById } from "../redux/slices/cartSlice";
 import { Item } from "../redux/slices/cartSlice";
 import "../scss/components/_item-page.scss";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { Skeleton } from "../components";
 const ItemPage:React.FC = () => {
   interface Product {
     imageUrl: string;
@@ -37,7 +38,13 @@ const ItemPage:React.FC = () => {
   }, []);
   const dispatch = useDispatch();
   if (!item) {
-    return <div>Loading...</div>;
+    return (
+      <div className="container">
+        <div className="item">
+          <Skeleton width='320' height="600"/>
+        </div>
+      </div>
+    )
   }
 const onCLickAdd = () => {
   const itemToAdd:Item = {
@@ -88,6 +95,7 @@ const onCLickAdd = () => {
           </div>
           <div className="item__body__bottom">
             <div className="item__body-price">{item.price} $</div>
+              <div className="item__body-buttons">
             <button onClick={onCLickAdd} className="button button--outline button--add">
               <svg
                 width="12"
@@ -104,6 +112,12 @@ const onCLickAdd = () => {
               <span>Добавить</span>
               {/* addedItem > 0 && <i>{addedItem}</i> */}
             </button>
+           <Link to='/'>
+             <button className="button button--outline button--add button--back">
+              <span>Назад</span>
+            </button>
+            </Link>
+            </div>
           </div>
         </div>
       </div>

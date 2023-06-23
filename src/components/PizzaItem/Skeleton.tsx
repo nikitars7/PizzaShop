@@ -1,11 +1,14 @@
 import React from "react"
 import ContentLoader from "react-content-loader"
-
-const Skeleton:React.FC = (props) => (
+type SkeletonProps = {
+width?:string,
+height?:string,
+}
+const Skeleton:React.FC<SkeletonProps> = (props) => (
   <ContentLoader 
     speed={2}
-    width={280}
-    height={500}
+    width={props?.width ? props.width : 280}
+    height={props?.height ? props.height : 500}
     viewBox="0 0 280 500"
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
