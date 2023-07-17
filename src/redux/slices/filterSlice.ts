@@ -22,7 +22,7 @@ const initialState: FilterInitState = {
   categoryId: 0,
   pageCount: 1,
   sort: {
-    name: "популярности",
+    name: "rating",
     sortProperty: SortPropEnum.RATING_DESC,
   },
 };
@@ -51,7 +51,7 @@ const filterSlice = createSlice({
         state.pageCount = 1;
         state.categoryId = 0;
         state.sort = {
-          name: "популярности",
+          name: "rating",
           sortProperty: SortPropEnum.RATING_DESC,
         };
       }

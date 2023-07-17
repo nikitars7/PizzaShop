@@ -1,3 +1,4 @@
+@import '../../scss/variables';
 .root{
    position: relative;
 }
@@ -10,13 +11,13 @@
    padding-left: 44px;
    transition: all 0.3s ease-in-out;
    &:focus{
-      border: 1px solid #fe5f1e;
+      border: 1px solid $purple;
       width: 400px;
    }
    @media (max-width:600px) {
       width: 200px;
       &:focus{
-         border: 1px solid #fe5f1e;
+         border: 1px solid $purple;
          width: 270px;
       }
    } 

@@ -8,12 +8,12 @@ sortProperty:SortPropEnum
 }
 // or type rateList = {name:string;sortProperty:string;}
 export const ratingList:RateList[] = [
-  { name: "популярность (DESC)", sortProperty: SortPropEnum.RATING_DESC },
-  { name: "популярность (ASC)", sortProperty: SortPropEnum.RATING_ASC },
-  { name: "цене (DESC)", sortProperty:SortPropEnum.PRICE_DESC },
-  { name: "цене (ASC)", sortProperty: SortPropEnum.PRICE_ASC },
-  { name: "алфавиту (DESC)", sortProperty: SortPropEnum.TITLE_DESC },
-  { name: "алфавиту (ASC)", sortProperty:  SortPropEnum.TITLE_ASC },
+  { name: "rating (DESC)", sortProperty: SortPropEnum.RATING_DESC },
+  { name: "rating (ASC)", sortProperty: SortPropEnum.RATING_ASC },
+  { name: "price (DESC)", sortProperty:SortPropEnum.PRICE_DESC },
+  { name: "price (ASC)", sortProperty: SortPropEnum.PRICE_ASC },
+  { name: "alphabet (DESC)", sortProperty: SortPropEnum.TITLE_DESC },
+  { name: "alphabet (ASC)", sortProperty:  SortPropEnum.TITLE_ASC },
 ];
 const Sort:React.FC = () => {
   const { sort } = useSelector((state:RootState) => state.filterReducer);
@@ -49,7 +49,7 @@ const Sort:React.FC = () => {
             fill="#2C2C2C"
           />
         </svg>
-        <b>Сортировка по:</b>
+        <b>Sorted by:</b>
         <span onClick={() => setIsSort(!isSort)}>{sort.name}</span>
       </div>
       {isSort ? (

@@ -90,7 +90,7 @@ const Content:React.FC = () => {
         <Categories categoryId={categoryId} onClickCategory={onClickCategory} />
         <Sort />
       </div>
-      <h2 className="content__title">Все пиццы</h2>
+      <h2 className="content__title">Pizzas</h2>
       {isLoading === "error" ? (
         <div className="content__error">
           <h2> Something went wrong 😕</h2>

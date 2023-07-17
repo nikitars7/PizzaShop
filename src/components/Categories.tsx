@@ -7,12 +7,12 @@ type CategoriesProps = {
 const Categories:React.FC<CategoriesProps> = ({categoryId ,onClickCategory}) => {
  useWhyDidYouUpdate('Categories',{categoryId ,onClickCategory})
   const categories = [
-    "Все",
-    "Мясные",
-    "Вегетарианская",
-    "Гриль",
-    "Острые",
-    "Закрытые",
+    "All",
+    "Meaty",
+    "Vegan",
+    "Grill",
+    "Spicy",
+    "Enclosed",
   ];
   return (
     <div className="categories">
