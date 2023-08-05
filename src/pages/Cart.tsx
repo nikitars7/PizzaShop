@@ -1,18 +1,27 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Item, clearCart ,selectCart} from "../redux/slices/cartSlice";
+import { Item, clearCart, selectCart } from "../redux/slices/cartSlice";
 import CartItem from "../components/Cartitem";
 import CartEmpty from "../components/CartEmpty";
-const Cart:React.FC = () => {
+import { selectIsAuth } from "../redux/slices/auth";
+const Cart: React.FC = () => {
   const dispatch = useDispatch();
-  const {items,totalPrice} = useSelector(selectCart)
-  const totalItems = items.reduce((summ:number,item:Item) => summ + item.count ,0)
+  const isAuth = useSelector(selectIsAuth);
+  const { items, totalPrice } = useSelector(selectCart);
+  const totalItems = items.reduce(
+    (summ: number, item: Item) => summ + item.count,
+    0
+  );
   const onClickCLear = () => {
-    if(window.confirm('Clear out all?'))
-   dispatch(clearCart())
-  }
-  if(!totalItems){
-    return <CartEmpty/>
+    if (window.confirm("Clear out all?")) dispatch(clearCart());
+  };
+  const checkAuthMe = () => {
+    if (!isAuth) {
+      alert("You must be registered in order to pay");
+    }
+  };
+  if (!totalItems) {
+    return <CartEmpty />;
   }
   return (
     <div className="content">
@@ -93,9 +102,9 @@ const Cart:React.FC = () => {
             </div>
           </div>
           <div className="cart__items">
-           {
-            items.map((item:Item) => <CartItem key={item.id} {...item}/>)
-           }
+            {items.map((item: Item) => (
+              <CartItem key={item.id} {...item} />
+            ))}
           </div>
           <div className="cart__bottom">
             <div className="cart__bottom-details">
@@ -131,9 +140,9 @@ const Cart:React.FC = () => {
 
                 <span>Back</span>
               </Link>
-              <div className="button pay-btn">
+              <button onClick={checkAuthMe} className="button pay-btn">
                 <span>Pay now</span>
-              </div>
+              </button>
             </div>
           </div>
         </div>

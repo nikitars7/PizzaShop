@@ -1,22 +1,34 @@
-import {useEffect,useRef} from 'react';
+import { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import pizzaLogo from "../assets/img/pizza-logo.svg";
 import Search from "./Search";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Item, selectCart } from "../redux/slices/cartSlice";
-const Header:React.FC = () => {
+import { logout, selectIsAuth } from "../redux/slices/auth";
+const Header: React.FC = () => {
+  const isAuth = useSelector(selectIsAuth);
+  const dispatch = useDispatch();
   const { items, totalPrice } = useSelector(selectCart);
-  const totalItems = items.reduce((summ:number, item:Item) => summ + item.count, 0);
+  const totalItems = items.reduce(
+    (summ: number, item: Item) => summ + item.count,
+    0
+  );
   const location = useLocation();
   const { pathname } = location;
   const isMounted = useRef(false);
   useEffect(() => {
-    if(isMounted.current){
+    if (isMounted.current) {
       const json = JSON.stringify(items);
-      localStorage.setItem('cart',json)
+      localStorage.setItem("cart", json);
     }
-   isMounted.current = true;
-  },[items])
+    isMounted.current = true;
+  }, [items]);
+  const onClickLogout = () => {
+    if (window.confirm("Are you sure you want to leave?")) {
+      dispatch(logout());
+      window.localStorage.removeItem("token");
+    }
+  };
   return (
     <div className="header">
       <div className="container">
@@ -29,11 +41,32 @@ const Header:React.FC = () => {
             </div>
           </div>
         </Link>
-      {location.pathname !== '/cart' && <Search />}
+        {location.pathname !== "/cart" &&
+          location.pathname !== "/login" &&
+          location.pathname !== "/register" && <Search />}
+        {isAuth ? (
+          <button className="button button--logout" onClick={onClickLogout}>
+            Log out
+          </button>
+        ) : (
+          <>
+            {location.pathname !== "/login" &&
+              location.pathname !== "/register" && (
+                <div className="header__login">
+                  <Link to="/login" className="button button--login">
+                    Log in
+                  </Link>
+                  <Link to="/register" className="button button--login">
+                    Register
+                  </Link>
+                </div>
+              )}
+          </>
+        )}
         {pathname !== "/cart" ? (
           <div className="header__cart">
             <Link to="/cart" className="button button--cart">
-              <span>{items.length === 0 ? 0:totalPrice} $</span>
+              <span>{items.length === 0 ? 0 : totalPrice} $</span>
               <div className="button__delimiter"></div>
               <svg
                 width="18"
