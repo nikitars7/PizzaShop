@@ -11,12 +11,7 @@ export type FetchParams = {
 // createAsyncThunk<FetchItem[],FetchParams>
 export const fetchItems = createAsyncThunk(
   "pizza/fetchItemsStatus",
-  async (
-    params: FetchParams,
-    {
-      /* rejectWithValue */
-    }
-  ) => {
+  async (params: FetchParams) => {
     const { order, sorted, search, category, pageCount } = params;
 
     const res = await axios.get<FetchItem[]>(
