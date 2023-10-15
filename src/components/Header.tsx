@@ -33,7 +33,7 @@ const Header: React.FC = () => {
     <div className="header">
       <div className="container">
         <Link to="/">
-          <div className="header__logo">
+          <div data-testid='header-logo' className="header__logo">
             <img width="38" src={pizzaLogo} alt="Pizza logo" />
             <div>
               <h1>PizzaProject</h1>
