@@ -44,6 +44,9 @@ jobs:
           run: npm run lint
    build:
       needs: [test, lint]
+      strategy:
+        matrix:
+          node-version: [16,17]
       runs-on: ubuntu-latest
       steps:
          - name: Get repository code
@@ -51,7 +54,7 @@ jobs:
          - name: install Node JS
            uses: actions/setup-node@v3
            with:
-             node-version: 17
+             node-version: ${{matrix.node-version}}
          - name: Cache deps
            uses: actions/cache@v3
            with:
