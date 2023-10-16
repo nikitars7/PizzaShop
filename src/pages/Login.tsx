@@ -35,7 +35,7 @@ const Login: React.FC = () => {
   }
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
-      <h1>Login</h1>
+      <h1 data-testid='login-page'>Login</h1>
       <div className="form__block">
         <label>Email</label>
         <input

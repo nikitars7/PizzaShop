@@ -82,7 +82,7 @@ jobs:
         - name: Install dependecies
           run: npm ci
         - name: Deploy application
-          run: npm run deploy
+          run: echo Deploying....
 
 
       

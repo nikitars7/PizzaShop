@@ -1,18 +1,21 @@
-import { render, screen } from "@testing-library/react";
-import Header from "./components/Header";
-import { Provider } from "react-redux";
-import { store } from "./redux/store";
-import { MemoryRouter } from "react-router-dom";
+import { screen } from "@testing-library/react";
+import { renderWithRouterRedux } from "./tests/helpers/renderWithRouterRedux";
 describe("TEST APP", () => {
   test("header logo test", () => {
-    render(
-      <MemoryRouter>
-        <Provider store={store}>
-          <Header />
-        </Provider>
-      </MemoryRouter>
-    );
+    renderWithRouterRedux(null,'/')
     const headerLogo = screen.getByTestId("header-logo");
     expect(headerLogo).toBeInTheDocument();
   });
+  test("login button",()=>{
+    renderWithRouterRedux(null,'/')
+   expect(screen.getByTestId('login')).toBeInTheDocument()
+  })
+  test("register button",()=>{
+    renderWithRouterRedux(null,'/')
+    expect(screen.getByTestId('register')).toBeInTheDocument()
+  })
+  test('search input',()=>{
+    renderWithRouterRedux(null,'/')
+    expect(screen.getByTestId('search-input')).toBeInTheDocument()
+  })
 });

@@ -39,7 +39,7 @@ const Register: React.FC = () => {
  }
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
-      <h1>Register</h1>
+      <h1 data-testid='register-page'>Register</h1>
       <div className="form__block">
         <label>Name</label>
         <input

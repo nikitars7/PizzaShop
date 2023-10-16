@@ -59,6 +59,7 @@ const Search:React.FC = () => {
         />
       </svg>
       <input
+      data-testid='search-input'
         ref={inputRef}
         value={value}
         onChange={onChangeInput}
