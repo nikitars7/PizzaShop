@@ -13,7 +13,7 @@ jobs:
        - name: install Node JS
          uses: actions/setup-node@v3
          with:
-           node-version: 17
+           node-version: 16.x
        - name: Cache deps
          uses: actions/cache@v3
          with:
@@ -46,7 +46,7 @@ jobs:
       needs: [test, lint]
       strategy:
         matrix:
-          node-version: [16,17]
+          node-version: [16.x , 17.x]
       runs-on: ubuntu-latest
       steps:
          - name: Get repository code
