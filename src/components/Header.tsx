@@ -53,10 +53,10 @@ const Header: React.FC = () => {
             {location.pathname !== "/login" &&
               location.pathname !== "/register" && (
                 <div className="header__login">
-                  <Link to="/login" className="button button--login">
+                  <Link data-testid="login" to="/login" className="button button--login">
                     Log in
                   </Link>
-                  <Link to="/register" className="button button--login">
+                  <Link data-testid="register"  to="/register" className="button button--login">
                     Register
                   </Link>
                 </div>

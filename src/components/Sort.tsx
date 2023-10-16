@@ -50,7 +50,7 @@ const Sort:React.FC = () => {
           />
         </svg>
         <b>Sorted by:</b>
-        <span onClick={() => setIsSort(!isSort)}>{sort.name}</span>
+        <span data-testid='sort-title' onClick={() => setIsSort(!isSort)}>{sort.name}</span>
       </div>
       {isSort ? (
         <div className="sort__popup">
@@ -58,6 +58,7 @@ const Sort:React.FC = () => {
             {ratingList.map((obj, index) => {
               return (
                 <li
+                  data-testid={index === 1 ? 'sort-value' : ''}
                   key={index}
                   onClick={() => onClickSelected(obj)}
                   className={
