@@ -13,7 +13,7 @@ jobs:
        - name: install Node JS
          uses: actions/setup-node@v3
          with:
-           node-version: 16.x
+           node-version: 17.x
        - name: Cache deps
          uses: actions/cache@v3
          with:
@@ -23,11 +23,6 @@ jobs:
          run: npm ci
        - name: unit tests
          run: npm run test
-      #  - uses: actions/upload-artifact@v1
-      #    if: failure()
-      #    with:
-      #      name: logs
-      #      path: logs
    lint:
       runs-on: ubuntu-latest
       steps:
