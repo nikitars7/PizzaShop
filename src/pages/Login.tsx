@@ -35,10 +35,11 @@ const Login: React.FC = () => {
   }
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
-      <h1 data-testid='login-page'>Login</h1>
+      <h1 data-testid="login-page">Login</h1>
       <div className="form__block">
         <label>Email</label>
         <input
+          data-testid="login-input-email"
           type="email"
           {...register("email", { required: "Email is required" })}
           className={errors?.email ? "input__error" : "form__input"}
@@ -48,6 +49,7 @@ const Login: React.FC = () => {
       <div className="form__block">
         <label>Password</label>
         <input
+          data-testid="login-input-password"
           type="password"
           {...register("password", { required: "Password is required" })}
           className={errors?.password ? "input__error" : "form__input"}
@@ -56,7 +58,11 @@ const Login: React.FC = () => {
           <p className="form__error">{errors.password.message}</p>
         )}
       </div>
-      <button className="button button--login" type="submit">
+      <button
+        data-testid="login-button-signin"
+        className="button button--login"
+        type="submit"
+      >
         Sign in
       </button>
     </form>

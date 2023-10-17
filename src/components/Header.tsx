@@ -64,7 +64,7 @@ const Header: React.FC = () => {
           </>
         )}
         {pathname !== "/cart" ? (
-          <div className="header__cart">
+          <div data-testid='header-cart' className="header__cart">
             <Link to="/cart" className="button button--cart">
               <span>{items.length === 0 ? 0 : totalPrice} $</span>
               <div className="button__delimiter"></div>

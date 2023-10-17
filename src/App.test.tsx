@@ -18,4 +18,8 @@ describe("TEST APP", () => {
     renderWithRouterRedux(null,'/')
     expect(screen.getByTestId('search-input')).toBeInTheDocument()
   })
+  test('cart button',()=>{
+    renderWithRouterRedux(null,'/')
+    expect(screen.getByTestId('header-cart')).toBeInTheDocument()
+  })
 });
