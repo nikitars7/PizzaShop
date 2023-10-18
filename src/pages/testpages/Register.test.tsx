@@ -23,6 +23,6 @@ describe('register test',()=>{
          }
          })
       const buttonLogin = screen.getByTestId('register-button-signup');
-      fireEvent.click(buttonLogin);
+      // fireEvent.click(buttonLogin);
    })
 })

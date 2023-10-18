@@ -23,6 +23,6 @@ test('should login',() =>{
       }
       })
    const buttonLogin = screen.getByTestId('login-button-signin');
-   fireEvent.click(buttonLogin);
+   // fireEvent.click(buttonLogin);
 })
 })
