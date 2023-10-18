@@ -59,6 +59,8 @@ jobs:
    deploy:
        needs: build
        runs-on: ubuntu-latest
+       env:
+        GH_SECRET: ${{secrets.DEPLOY_SECRET}}
        steps:
         - name: Get repository code
           uses: actions/checkout@v4
@@ -77,7 +79,7 @@ jobs:
           run: |
             git config --global user.name 'Nikita'
             git config --global user.email 'nikita_rs7@ukr.net'
-            git remote set-url origin https://x-access-token:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}
+            git remote set-url origin https://${{env.GH_SECRET}}@github.com/${{github.repository}}
             npm run deploy
 
       
