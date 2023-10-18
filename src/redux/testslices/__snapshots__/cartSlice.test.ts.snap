@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cartSlice should add pizza to the cart 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "count": 1,
+      "id": "7",
+      "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d48003cd-902c-420d-9f28-92d9dc5f73b4.jpg",
+      "price": 450,
+      "size": 26,
+      "title": "Margarita",
+      "type": "thin",
+    },
+  ],
+  "totalPrice": 450,
+}
+`;
+
+exports[`cartSlice should change count of item negatively 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "count": 1,
+      "id": "7",
+      "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d48003cd-902c-420d-9f28-92d9dc5f73b4.jpg",
+      "price": 450,
+      "size": 26,
+      "title": "Margarita",
+      "type": "thin",
+    },
+  ],
+  "totalPrice": 450,
+}
+`;
+
+exports[`cartSlice should change count of item positively 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "count": 2,
+      "id": "7",
+      "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d48003cd-902c-420d-9f28-92d9dc5f73b4.jpg",
+      "price": 450,
+      "size": 26,
+      "title": "Margarita",
+      "type": "thin",
+    },
+  ],
+  "totalPrice": 900,
+}
+`;
+
+exports[`cartSlice should clear all the cart 1`] = `
+Object {
+  "items": Array [],
+  "totalPrice": 0,
+}
+`;
+
+exports[`cartSlice should remove pizza from the cart 1`] = `
+Object {
+  "items": Array [],
+  "totalPrice": 0,
+}
+`;
+
+exports[`cartSlice should return default state 1`] = `
+Object {
+  "items": Array [],
+  "totalPrice": 0,
+}
+`;

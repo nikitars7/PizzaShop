@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`filterSlice should return default state 1`] = `
+Object {
+  "categoryId": 0,
+  "pageCount": 1,
+  "searchValue": "",
+  "sort": Object {
+    "name": "rating",
+    "sortProperty": "rating",
+  },
+}
+`;
+
+exports[`filterSlice should setCategoryId value 1`] = `
+Object {
+  "categoryId": 1,
+  "pageCount": 1,
+  "searchValue": "",
+  "sort": Object {
+    "name": "rating",
+    "sortProperty": "rating",
+  },
+}
+`;
+
+exports[`filterSlice should setPageCount value 1`] = `
+Object {
+  "categoryId": 0,
+  "pageCount": 2,
+  "searchValue": "",
+  "sort": Object {
+    "name": "rating",
+    "sortProperty": "rating",
+  },
+}
+`;
+
+exports[`filterSlice should setSearchValue value 1`] = `
+Object {
+  "categoryId": 0,
+  "pageCount": 1,
+  "searchValue": "HelloWorld",
+  "sort": Object {
+    "name": "rating",
+    "sortProperty": "rating",
+  },
+}
+`;
+
+exports[`filterSlice should setSortBy value 1`] = `
+Object {
+  "categoryId": 0,
+  "pageCount": 1,
+  "searchValue": "",
+  "sort": Object {
+    "name": "price (ASC)",
+    "sortProperty": "-price",
+  },
+}
+`;
