@@ -77,7 +77,9 @@ jobs:
         - name: Install dependecies
           run: npm ci
         - name: Deploy application
-          run: echo Deploying....
-
+          run: |
+            git config --global user.name 'Nikita'
+            git config --global user.email 'nikita_rs7@ukr.net'
+            npm run deploy
 
       
