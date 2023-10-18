@@ -11,17 +11,19 @@ export type FetchParams = {
 // createAsyncThunk<FetchItem[],FetchParams>
 export const fetchItems = createAsyncThunk(
   "pizza/fetchItemsStatus",
-  async (params: FetchParams) => {
+  async (params: FetchParams, { rejectWithValue }) => {
     const { order, sorted, search, category, pageCount } = params;
-
-    const res = await axios.get<FetchItem[]>(
-      `https://6404ecfc40597b65de2d48a6.mockapi.io/Pizzas?page=${pageCount}&limit=4&${category}&sortBy=${sorted}&order=${order}${search}`
-    );
-
-    return res.data as FetchItem[];
+    try {
+      const res = await axios.get<FetchItem[]>(
+        `https://6404ecfc40597b65de2d48a6.mockapi.io/Pizzas?page=${pageCount}&limit=4&${category}&sortBy=${sorted}&order=${order}${search}`
+      );
+      return res.data as FetchItem[];
+    } catch (e: any) {
+      return rejectWithValue(e.message);
+    }
   }
 );
-type FetchItem = {
+export type FetchItem = {
   title: string;
   price: number;
   imageUrl: string;
