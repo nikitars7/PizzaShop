@@ -21,7 +21,6 @@ const Content:React.FC = () => {
   const dispatch = useAppDispatch();
   const isSearch = useRef(false);
   const isMounted = useRef(false);
-console.log(items)
   const getAllFood = async () => {
     const order = sortBy.includes("-") ? "ask" : "desc";
     const sorted = sortBy.replace("-", "");
