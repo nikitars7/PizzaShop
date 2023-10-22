@@ -62,6 +62,7 @@ const PizzaItem: React.FC<PizzaItemProps> = ({
             {types.map((type, index) => {
               return (
                 <li
+                  data-testid='types-id'
                   key={index}
                   onClick={() => setActiveType(type)}
                   className={activeType === type ? "active" : ""}
@@ -75,6 +76,7 @@ const PizzaItem: React.FC<PizzaItemProps> = ({
             {sizes.map((size, index) => {
               return (
                 <li
+                  data-testid='sizes-id'
                   key={index}
                   onClick={() => setActiveSize(index)}
                   className={activeSize === index ? "active" : ""}
@@ -88,6 +90,7 @@ const PizzaItem: React.FC<PizzaItemProps> = ({
         <div className="pizza-block__bottom">
           <div className="pizza-block__price">from {price}$</div>
           <button
+            data-testid='button-add'
             onClick={onClickAdd}
             className="button button--outline button--add"
           >

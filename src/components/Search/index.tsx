@@ -68,6 +68,7 @@ const Search:React.FC = () => {
       />
       {value && (
         <svg
+          data-testid='search-remove-button'
           onClick={onClickClear}
           className={styles.clear}
           height="48"
