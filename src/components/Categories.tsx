@@ -20,6 +20,7 @@ const Categories:React.FC<CategoriesProps> = ({categoryId ,onClickCategory}) => 
         {categories.map((category, index) => {
           return (
             <li
+              data-testid='categories-id'
               key={index}
               onClick={() => onClickCategory(index)}
               className={categoryId === index ? "active" : ""}

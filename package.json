@@ -32,6 +32,8 @@
     "start": "react-scripts start",
     "build": "CI=false && react-scripts build",
     "test": "react-scripts test",
+    "test:e2e": "start-server-and-test start http://localhost:3000 cypress",
+    "cypress": "cypress open",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -40,7 +42,8 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:cypress/recommended"
     ]
   },
   "jest": {
@@ -61,7 +64,10 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^13.3.2",
+    "eslint-plugin-cypress": "^2.15.1",
     "gh-pages": "^5.0.0",
+    "start-server-and-test": "^2.0.1",
     "typescript": "^5.2.2"
   }
 }
