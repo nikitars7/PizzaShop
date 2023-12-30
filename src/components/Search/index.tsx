@@ -3,27 +3,27 @@ import { useDispatch } from "react-redux";
 import { setSeatchValue } from "../../redux/slices/filterSlice";
 import debounce from "lodash.debounce";
 import styles from "./Search.module.scss";
-const Search:React.FC = () => {
+const Search: React.FC = () => {
   const dispatch = useDispatch();
-  const [value,setValue] = useState<string>('')
+  const [value, setValue] = useState<string>("");
   const inputRef = useRef<HTMLInputElement>(null);
   const onClickClear = () => {
-    dispatch(setSeatchValue(''))
-    setValue('');
-    if(inputRef.current){
+    dispatch(setSeatchValue(""));
+    setValue("");
+    if (inputRef.current) {
       inputRef.current.focus();
     } // 2nd  inputRef.current?.focus();
   };
   const updateSearchValue = useCallback(
-    debounce((str:string) => {
-     dispatch(setSeatchValue(str))
+    debounce((str: string) => {
+      dispatch(setSeatchValue(str));
     }, 450),
     []
   );
-  const onChangeInput = (event:React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value)
+  const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
     updateSearchValue(event.target.value);
-  }
+  };
   return (
     <div className={styles.root}>
       <svg
@@ -59,7 +59,7 @@ const Search:React.FC = () => {
         />
       </svg>
       <input
-      data-testid='search-input'
+        data-testid="search-input"
         ref={inputRef}
         value={value}
         onChange={onChangeInput}
@@ -68,7 +68,7 @@ const Search:React.FC = () => {
       />
       {value && (
         <svg
-          data-testid='search-remove-button'
+          data-testid="search-remove-button"
           onClick={onClickClear}
           className={styles.clear}
           height="48"
