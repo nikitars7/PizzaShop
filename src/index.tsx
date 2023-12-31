@@ -1,16 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { HashRouter } from "react-router-dom";
+import { HashRouter, BrowserRouter } from "react-router-dom";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+// basename={process.env.PUBLIC_URL}
 root.render(
   <Provider store={store}>
-    <HashRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename="/PizzaShop">
       <App />
-    </HashRouter>
+    </BrowserRouter>
   </Provider>
 );

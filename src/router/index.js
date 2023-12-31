@@ -7,7 +7,7 @@ import Register from "../pages/Register";
 const Cart = lazy(() => import(/*webpackChunkName: 'Cart'*/ "../pages/Cart"));
 
 export const routes = [
-  { path: "/PizzaShop", component: <Home /> },
+  { path: "/", component: <Home /> },
   { path: "/login", component: <Login /> },
   { path: "/register", component: <Register /> },
   { path: "pizza/:id", component: <ItemPage /> },
