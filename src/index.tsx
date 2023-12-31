@@ -7,7 +7,6 @@ import { Provider } from "react-redux";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
-// basename={process.env.PUBLIC_URL}
 root.render(
   <Provider store={store}>
     <BrowserRouter basename="/PizzaShop">
